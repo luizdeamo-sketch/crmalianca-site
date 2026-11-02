@@ -143,111 +143,32 @@ p { margin: 0; }
 .card .shows { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--ink); }
 .card .shows b { font-weight: 600; }
 
-/* Fases */
-.phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px; }
-.phase { padding: 20px; border-radius: 14px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-.phase .n { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--gold); font-family: var(--font-display); font-weight: 700; color: var(--gold); }
-.phase h3 { font-size: 19px; }
-.phase p { font-size: 14.5px; }
-.phase .chip { align-self: flex-start; margin-top: auto; }
-.phase.last { background: var(--ink); border-color: var(--ink); }
-.phase.last .n { border-color: var(--gold-bright); color: var(--gold-bright); }
-.phase.last h3 { color: var(--on-night); }
-.phase.last p { color: var(--on-night-soft); }
+/* O que faz: linha da IA */
+.ia-linha { margin-top: 16px; padding: 18px 22px; border-radius: 14px; background: var(--ink); color: var(--on-night-soft); font-size: 15.5px; display: flex; gap: 12px; align-items: flex-start; }
+.ia-linha b { color: var(--gold-bright); }
 
-/* IA */
-.ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 12px; }
-.ai-card { border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 12px; background: var(--night-2); border: 1px solid var(--night-line); min-width: 0; }
-.ai-card h3 { font-size: 20px; }
-.ai-card p { font-size: 15px; color: var(--on-night-soft); }
-.io { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--gold-bright); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.io span { border: 1px solid rgba(215,170,66,.45); border-radius: 6px; padding: 3px 8px; }
-.io i { font-style: normal; color: var(--on-night-faint); }
-.ai-rule { margin-top: 28px; padding: 18px 20px; border-radius: 14px; border: 1px solid rgba(215,170,66,.45); background: rgba(215,170,66,.08); font-size: 15px; color: var(--on-night-soft); max-width: 1400px; }
-.ai-rule b { color: var(--on-night); }
-
-/* Gestão */
-.mgmt { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px; }
-.m-card { border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 14px; min-width: 0; background: var(--white); }
-.m-card h3 { font-size: 20px; }
-.m-card p { font-size: 15px; }
-.funnel { display: flex; flex-wrap: wrap; gap: 6px; }
-.funnel span { font-size: 12.5px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--band); border: 1px solid var(--line); color: var(--text); }
-.funnel span.on { background: var(--ink); color: #fff; border-color: var(--ink); }
-.renew { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
-.renew div { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 12px; background: var(--band); border-radius: 10px; color: var(--ink); }
-
-/* Território */
-.terr { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; font-family: var(--font-display); font-size: clamp(22px, 3vw, 36px); font-weight: 700; letter-spacing: -0.02em; }
-.terr span { color: #9aa1a8; }
-.terr span.on { color: var(--ink); }
-.terr i { font-style: normal; color: var(--gold); font-size: .7em; }
-
-/* Aprende */
-.learn { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: center; }
-.learn ul { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-direction: column; gap: 14px; }
-.learn li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: 16px; }
-.learn li svg { margin-top: 4px; }
-.report { border-radius: 18px; border: 1px solid var(--line); background: var(--white); overflow: hidden; min-width: 0; box-shadow: 0 28px 70px -36px rgba(17,24,39,.3); }
-.report header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 14px 20px; background: var(--night); }
-.report header b { font-family: var(--font-display); color: var(--on-night); font-size: 15px; }
-.report header span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: #8b98aa; }
-.report .body { padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
-.bar-row { display: grid; grid-template-columns: 120px 1fr 52px; gap: 10px; align-items: center; }
-.bar-row span:first-child { color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.bar { height: 8px; border-radius: 999px; background: var(--band); overflow: hidden; }
-.bar i { display: block; height: 100%; background: var(--ink); border-radius: 999px; }
-.bar-row:first-of-type .bar i { background: var(--gold); }
-.bar-row em { font-style: normal; font-variant-numeric: tabular-nums; text-align: right; color: var(--muted); }
-.flag { padding: 12px 14px; border-radius: 10px; background: var(--gold-soft); color: var(--ink); }
-
-/* Implantação: plano de voo */
-.plan { border-radius: 18px; background: var(--night); overflow: hidden; box-shadow: 0 28px 70px -36px rgba(13,17,23,.55); }
-.plan-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; padding: 18px 24px; border-bottom: 1px solid rgba(255,255,255,.08); }
-.plan-top .t { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; color: var(--gold-bright); }
-.plan-top .t img { width: 26px; height: 26px; }
-.plan-top .s { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: #8b98aa; }
-.plan-top .s i { width: 8px; height: 8px; border-radius: 50%; background: var(--signal); }
-.plan-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 20px; padding: 14px 24px; border-top: 1px solid rgba(255,255,255,.06); }
-.plan-row:first-of-type { border-top: 0; }
-.plan-row .w { flex: 0 0 110px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; color: var(--gold-bright); }
-.plan-row .e { flex: 1 1 220px; font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--on-night); }
-.plan-row .d { flex: 1 1 300px; font-size: 14px; color: var(--on-night-soft); }
-.plan-row.hl { background: rgba(215,170,66,.08); }
-.plan-head { display: flex; flex-wrap: wrap; gap: 6px 20px; padding: 10px 24px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: #6c7c93; }
-.plan-head span:nth-child(1) { flex: 0 0 110px; } .plan-head span:nth-child(2) { flex: 1 1 220px; } .plan-head span:nth-child(3) { flex: 1 1 300px; }
-@media (max-width: 560px) { .plan-head { display: none; } }
-.trio { margin-top: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px; }
-.trio div { padding: 20px; border-radius: 14px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; background: var(--white); }
-.trio b { font-family: var(--font-display); font-size: 19px; color: var(--ink); }
-.trio span { font-size: 14.5px; }
+/* Planos em módulos (mesmos nomes e itens da tela Planos do sistema) */
+.planos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.plano { border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: flex; flex-direction: column; gap: 14px; background: var(--white); min-width: 0; }
+.plano.meio { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
+.plano .mod { font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.plano h3 { font-size: clamp(22px, 1.6vw, 28px); }
+.plano .para { color: var(--muted); font-size: 15px; }
+.plano ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px; font-size: 15px; color: var(--text); }
+.plano li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; }
+.plano li::before { content: "✓"; color: var(--gold); font-weight: 700; }
+.plano li.mais { color: var(--ink); font-weight: 600; }
+.plano li.mais::before { content: "+"; }
+.plano .pessoas { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); font-size: 14.5px; color: var(--ink); }
+.todos { margin-top: 16px; padding: 18px 22px; border-radius: 14px; background: var(--gold-soft); font-size: 15.5px; color: var(--ink); }
+.regras { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px; color: var(--muted); }
+.regras span::before { content: "• "; color: var(--gold); }
 
 /* Segurança */
 .trust { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 28px; }
 .trust div { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 2px solid var(--ink); }
 .trust h3 { font-size: 19px; }
 .trust p { font-size: 15px; }
-
-/* Origem */
-.origin p.big { font-family: var(--font-display); font-size: clamp(24px, 3vw, 38px); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--ink); max-width: 30ch; text-wrap: balance; }
-.origin p.big span { color: var(--gold); }
-.origin .who { margin-top: 16px; color: var(--muted); font-size: 15px; }
-
-/* Da mesma casa */
-.house { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: center; padding: clamp(24px, 4vw, 40px); border-radius: 18px; background: var(--gold-soft); }
-.house-copy { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; min-width: 0; }
-.house-copy h2 { font-size: clamp(24px, 2.6vw, 34px); line-height: 1.12; }
-.house-copy p { font-size: 16px; color: var(--text); max-width: 56ch; }
-.loop { list-style: none; counter-reset: l; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-.loop li { counter-increment: l; display: grid; grid-template-columns: 34px 90px 1fr; align-items: baseline; gap: 10px; padding: 12px 16px; border-radius: 12px; background: var(--white); }
-.loop li::before { content: counter(l); font-family: var(--font-mono); font-size: 12px; color: var(--gold); }
-.loop b { font-family: var(--font-display); font-size: 17px; color: var(--ink); }
-.loop span { font-size: 14.5px; color: var(--text); }
-.loop li:last-child { background: var(--ink); }
-.loop li:last-child b { color: var(--on-night); }
-.loop li:last-child span { color: var(--on-night-soft); }
-.loop li:last-child::before { color: var(--gold-bright); }
-@media (max-width: 560px) { .loop li { grid-template-columns: 26px 1fr; } .loop li span { grid-column: 2; } }
 
 /* Contato */
 .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: center; }
@@ -296,12 +217,11 @@ footer .row a:hover { color: var(--gold-bright); }
       <a class="product" href="#inicio" aria-label="CRM Aliança, Torre de Controle by Capacity Case"><img src="assets/torre-logo-marinho.png" alt="Torre de Controle · Aliança · by Capacity Case" width="169" height="40"></a>
     </div>
     <nav aria-label="Seções">
-      <a href="#jornada">Jornada</a>
-      <a href="#ia">Inteligência</a>
-      <a href="#gestao">Gestão</a>
-      <a href="#implantacao">Implantação</a>
+      <a href="#oque">O que faz</a>
+      <a href="#planos">Planos</a>
+      <a href="#seguranca">Segurança</a>
       <a href="https://capacitycase.com.br" target="_blank" rel="noopener">Capacity Case</a>
-      <a class="btn btn-dark" href="#contato">Pedir demonstração</a>
+      <a class="btn btn-dark" href="#contato">Quero conhecer</a>
     </nav>
   </div>
 </header>
@@ -315,8 +235,8 @@ footer .row a:hover { color: var(--gold-bright); }
         <p class="lead">O CRM para quem vende proteção de forma consultiva. Prospecção, diagnóstico, cotação, apresentação e pós-venda na mesma tela, para corretores e corretoras que cuidam da proteção de profissionais, empresários e famílias.</p>
         <p class="lead lead-torre">No dia a dia, o CRM Aliança vira a <b>Torre de Controle</b> da sua corretora: com o seu nome, o seu logo e as suas cores.</p>
         <div class="hero-cta">
-          <a class="btn btn-dark" href="#contato">Pedir uma demonstração</a>
-          <a class="btn btn-line" href="#jornada">Ver como funciona</a>
+          <a class="btn btn-dark" href="#contato">Quero conhecer</a>
+          <a class="btn btn-line" href="#planos">Ver os planos</a>
         </div>
         <div class="chips"><span>Vender mais</span><span>Perder menos renovação</span><span>Gerir pelo funil</span></div>
       </div>
@@ -361,184 +281,62 @@ footer .row a:hover { color: var(--gold-bright); }
     </div>
   </section>
 
-  <section class="band alt">
+  <section class="band alt" id="oque">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Onde a venda escapa</span>
-        <h2>A venda consultiva se perde entre planilha, WhatsApp e PDF solto.</h2>
-        <p>Cada pedaço da conversa fica num lugar. Por isso o gestor só percebe que perdeu o cliente quando a renovação já passou.</p>
+        <span class="eyebrow">O que faz</span>
+        <h2>Tudo o que a venda de proteção precisa, numa tela só.</h2>
       </div>
       <div class="cards">
-        <div class="card"><span class="chip chip-gold">Vender mais</span><h3>Ninguém sabe onde cada cliente parou</h3><p>O histórico fica na cabeça de quem atendeu.</p><span class="shows"><b>O Aliança mostra:</b> a etapa, a próxima ação e a data de cada cliente.</span></div>
-        <div class="card"><span class="chip chip-gold">Vender mais</span><h3>Diagnóstico refeito a cada reunião</h3><p>Renda, família e apólices são perguntadas de novo, e o cliente cansa.</p><span class="shows"><b>O Aliança mostra:</b> tudo registrado uma vez, usado no estudo e na cotação.</span></div>
-        <div class="card"><span class="chip chip-ok">Perder menos</span><h3>Renovação lembrada tarde demais</h3><p>A apólice vence e o cliente fecha com outro corretor.</p><span class="shows"><b>O Aliança mostra:</b> o que vence em 30, 15 e 7 dias.</span></div>
-        <div class="card"><span class="chip chip-bad">Decidir melhor</span><h3>O gestor só vê o resultado final</h3><p>Sabe quanto vendeu, mas não onde a conversão travou.</p><span class="shows"><b>O Aliança mostra:</b> a passagem de cada etapa do funil, mês a mês.</span></div>
+        <div class="card"><span class="chip chip-gold">Prospecção</span><h3>Cada contato com etapa e próxima ação</h3><p>Funil por etapas, reuniões que se confirmam sozinhas e lembretes prontos para o WhatsApp.</p></div>
+        <div class="card"><span class="chip chip-gold">Consultoria</span><h3>Diagnóstico em fases, apresentação pronta</h3><p>Renda, família e patrimônio, o que o cliente tem e o que precisa, cotações lado a lado e o PDF com a sua marca.</p></div>
+        <div class="card"><span class="chip chip-ok">Carteira</span><h3>Nenhuma renovação esquecida</h3><p>Todas as apólices num lugar, com avisos de 30, 15 e 7 dias antes de vencer e o pós-venda.</p></div>
+        <div class="card"><span class="chip chip-bad">Gestão</span><h3>O gestor vê a operação sem pedir relatório</h3><p>Indicadores da corretora e de cada corretor, metas, orçamento e funil com taxas de conversão.</p></div>
       </div>
+      <p class="ia-linha"><span aria-hidden="true">✨</span><span><b>Com inteligência artificial:</b> lê apólice, cotação e documento, prepara a reunião e organiza a sua planilha na hora de importar. Ela usa só o que está registrado e nunca inventa dado.</span></p>
     </div>
   </section>
 
-  <section class="band" id="jornada">
+  <section class="band" id="planos">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Fluxo de proteção</span>
-        <h2>Seis fases, uma por vez, do documento à apresentação.</h2>
-        <p>O especialista segue as fases na ordem. Cada uma guarda o que foi feito, e a apresentação sai pronta em PDF com a marca da corretora.</p>
+        <span class="eyebrow">Planos</span>
+        <h2>Vendido em módulos. Você começa pelo que precisa.</h2>
+        <p>Três planos, um em cima do outro. Dá para subir de plano a qualquer momento, pelo próprio sistema.</p>
       </div>
-      <div class="phases">
-        <div class="phase"><span class="n">1</span><h3>Dados da apólice</h3><p>O que o cliente já tem, de qual seguradora e até quando vale.</p></div>
-        <div class="phase"><span class="n">2</span><h3>Analisar documentos</h3><p>Apólice, certificado ou RG em PDF ou foto viram dados preenchidos.</p><span class="chip chip-gold">Lido pela IA</span></div>
-        <div class="phase"><span class="n">3</span><h3>Diagnóstico</h3><p>Renda, família, patrimônio, dívidas e saúde, no ritmo da conversa.</p></div>
-        <div class="phase"><span class="n">4</span><h3>Tem × Precisa</h3><p>A cobertura atual ao lado da necessidade calculada. A lacuna aparece sozinha.</p></div>
-        <div class="phase"><span class="n">5</span><h3>Cotações</h3><p>Várias seguradoras comparadas por cobertura, capital e prêmio mensal.</p><span class="chip chip-gold">Lido pela IA</span></div>
-        <div class="phase last"><span class="n">6</span><h3>Apresentação</h3><p>Um PDF em A4 paisagem, com a marca da corretora, para mostrar ao cliente.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band night" id="ia">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Inteligência que trabalha junto</span>
-        <h2>A IA faz a digitação e o preparo. A conversa continua com você.</h2>
-      </div>
-      <div class="ai-grid">
-        <div class="ai-card"><div class="io"><span>PDF da cotação</span><i>→</i><span>coberturas</span></div><h3>Lê cotação, apólice e documento</h3><p>Traz cada cobertura, capital e prêmio já convertido para mensal, sem omitir linha.</p></div>
-        <div class="ai-card"><div class="io"><span>nome + histórico</span><i>→</i><span>roteiro</span></div><h3>Prepara a visita</h3><p>Encontra a presença pública da pessoa e o que ela contou nas conversas, e sugere a abertura e as perguntas.</p></div>
-        <div class="ai-card"><div class="io"><span>reunião gravada</span><i>→</i><span>próximos passos</span></div><h3>Lê a reunião</h3><p>Resume a conversa, sugere a etapa do funil, aponta onde acertou e onde errou e lista as próximas ações com prazo.</p></div>
-        <div class="ai-card"><div class="io"><span>pergunta</span><i>→</i><span>resposta</span></div><h3>Responde sobre o cliente</h3><p>"Quando vence a apólice de renda dele?" A resposta vem do que está registrado na ficha.</p></div>
-      </div>
-      <p class="ai-rule"><b>A IA nunca inventa.</b> Ela usa só o que está no documento ou no CRM e diz quando a informação não está registrada. Saúde, religião, política e dados de menores ficam fora da pesquisa de pré-visita.</p>
-    </div>
-  </section>
-
-  <section class="band" id="gestao">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Gestão comercial</span>
-        <h2>O gestor enxerga a operação inteira, sem pedir relatório.</h2>
-      </div>
-      <div class="mgmt">
-        <div class="m-card">
-          <h3>Funil em oito etapas</h3>
-          <div class="funnel" aria-label="Etapas do funil"><span>Contato</span><span>Atendimento</span><span>Agendamento</span><span class="on">Reunião</span><span>Diagnóstico</span><span>Proposta</span><span>Fechamento</span><span>Follow-up</span></div>
-          <p>Cada passagem fica registrada, com origem do contato e motivo de perda.</p>
+      <div class="planos">
+        <div class="plano">
+          <span class="mod">Módulo 1</span><h3>Vendas</h3><p class="para">Para quem quer organizar a prospecção e vender mais.</p>
+          <ul><li>Prospecção com funil por etapas</li><li>Consultoria com as fases da proteção patrimonial</li><li>Reuniões que se confirmam sozinhas</li><li>Base de conhecimento: produtos, argumentos e objeções</li><li>Agenda no Outlook, Teams e Google</li><li>IA de vendas</li></ul>
+          <p class="pessoas">Até <b>3 pessoas</b> com acesso</p>
         </div>
-        <div class="m-card">
-          <h3>Central de Apólices</h3>
-          <div class="renew" aria-label="Exemplo de vencimentos">
-            <div><span>Renda · Helena D.</span><span class="chip chip-bad">7 dias</span></div>
-            <div><span>Vida · Rafael M.</span><span class="chip chip-gold">15 dias</span></div>
-            <div><span>RC profissional · Camila R.</span><span class="chip chip-ok">30 dias</span></div>
-          </div>
-          <p>Todas as apólices emitidas num lugar, ordenadas por vencimento.</p>
+        <div class="plano meio">
+          <span class="mod">Módulos 1 + 2</span><h3>Vendas + Carteira</h3><p class="para">Para quem também cuida das apólices e das renovações.</p>
+          <ul><li class="mais">Tudo do plano Vendas</li><li>Central de Apólices</li><li>Avisos de renovação de 30, 15 e 7 dias</li><li>Pós-venda</li><li>IA de carteira: lê a apólice e a cotação e preenche os dados</li></ul>
+          <p class="pessoas">Até <b>5 pessoas</b> com acesso</p>
         </div>
-        <div class="m-card"><h3>Metas e orçamento de receita</h3><p>Meta por período, projeção de vendas e orçamento comparado com o realizado. Vendas perdidas ficam registradas com o motivo.</p></div>
-        <div class="m-card"><h3>Indicações</h3><p>Quem indicou quem, do primeiro contato até a comissão do programa de indicação.</p></div>
-        <div class="m-card"><h3>Indicadores e analítico</h3><p>O perfil da base por especialidade, idade e região, o mapa de onde os clientes atuam e um modo apresentação para a reunião de resultados.</p></div>
-        <div class="m-card"><h3>Agenda e base de conhecimento</h3><p>A agenda conversa com Outlook e Teams. Scripts e respostas a objeções ficam buscáveis para a equipe.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band alt">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Método de conversa</span>
-        <h2>A conversa segue a vida do cliente, e não a tabela de produtos.</h2>
-        <p>O roteiro, as perguntas e a apresentação acompanham o momento de vida do profissional.</p>
-      </div>
-      <p class="terr" aria-label="Carreira, Renda, Patrimônio, Família, Legado">
-        <span class="on">Carreira</span><i>→</i><span class="on">Renda</span><i>→</i><span>Patrimônio</span><i>→</i><span>Família</span><i>→</i><span>Legado</span>
-      </p>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="wrap learn">
-      <div>
-        <span class="eyebrow">Aprende com quem usa</span>
-        <h2 style="font-size:clamp(26px,2.9vw,38px);margin-top:10px">O sistema mostra onde a equipe trava, e melhora toda semana.</h2>
-        <ul>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9c7518" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Um balão de ajuda aparece quando alguém parece perdido e recebe a dúvida em texto, áudio ou print.</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9c7518" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Um relatório diz quais telas são usadas, quanto tempo cada uma leva e onde houve clique repetido ou recusa.</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9c7518" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>As sugestões da equipe viram uma fila com status e resposta. O que é digitado nos campos nunca é registrado.</span></li>
-        </ul>
-      </div>
-      <div class="report" aria-label="Exemplo de relatório de uso com dados ilustrativos">
-        <header><b>Uso do dia</b><span>EXEMPLO ILUSTRATIVO</span></header>
-        <div class="body">
-          <div class="bar-row"><span>Prospecção</span><div class="bar"><i style="width:100%"></i></div><em>13 min</em></div>
-          <div class="bar-row"><span>Orçamento</span><div class="bar"><i style="width:33%"></i></div><em>4 min</em></div>
-          <div class="bar-row"><span>Indicadores</span><div class="bar"><i style="width:21%"></i></div><em>3 min</em></div>
-          <div class="bar-row"><span>Demandas</span><div class="bar"><i style="width:12%"></i></div><em>2 min</em></div>
-          <p class="flag"><b>Ponto de atenção:</b> em Prospecção, o botão Registrar foi tentado 5 vezes e uma foi recusada por falta do canal de contato.</p>
+        <div class="plano">
+          <span class="mod">Módulos 1 + 2 + 3</span><h3>Completo</h3><p class="para">Para quem gerencia uma equipe e quer números.</p>
+          <ul><li class="mais">Tudo do plano Vendas + Carteira</li><li>Indicadores da corretora e de cada corretor</li><li>Metas, orçamento e funil com taxas</li><li>Indicações</li><li>Ata da semana</li></ul>
+          <p class="pessoas">Até <b>10 pessoas</b> com acesso</p>
         </div>
       </div>
+      <p class="todos"><b>Em todos os planos:</b> a carteira de clientes com histórico, família e documentos, a importação da sua planilha, a agenda, as sugestões e a administração da equipe. O sistema leva o nome, o logo e as cores da sua corretora.</p>
+      <p class="regras"><span>15 dias grátis para experimentar</span><span>Mensalidade por empresa, sem fidelidade</span><span>Pagamento por Pix</span><span>Valores na conversa com a Capacity Case</span></p>
     </div>
   </section>
 
-  <section class="band alt" id="implantacao">
+  <section class="band alt" id="seguranca">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Implantação pela Capacity Case</span>
-        <h2>Quatro semanas para o Aliança rodar com a sua carteira.</h2>
-        <p>O sistema fica nas contas da sua empresa. A Capacity Case implanta, treina uma pessoa do seu time para operar e acompanha a operação depois.</p>
-      </div>
-      <div class="plan">
-        <div class="plan-top"><span class="t"><img src="assets/icone-dourado.png" alt="">PLANO DE VOO · SEU ALIANÇA</span><span class="s"><i></i>4 SEMANAS + ACOMPANHAMENTO</span></div>
-        <div class="plan-head"><span>QUANDO</span><span>ETAPA</span><span>ENTREGA</span></div>
-        <div class="plan-row hl"><span class="w">SEM 1</span><span class="e">Raio-X</span><span class="d">Como a venda acontece hoje, onde estão os dados e quais números o dono quer ver.</span></div>
-        <div class="plan-row"><span class="w">SEM 2</span><span class="e">Conexão</span><span class="d">Carteira, apólices e contatos dentro do Aliança, com as etapas e os campos da sua operação.</span></div>
-        <div class="plan-row"><span class="w">SEM 3</span><span class="e">Piloto</span><span class="d">O time usa no dia a dia, e o relatório de uso mostra onde ajustar telas e textos.</span></div>
-        <div class="plan-row"><span class="w">SEM 4</span><span class="e">Ritual</span><span class="d">Reunião semanal de funil e mensal de resultados, com o Aliança na tela.</span></div>
-      </div>
-      <div class="trio">
-        <div><b>Focal</b><span>Alguém do seu time que opera o Aliança. Não precisa ser técnico.</span></div>
-        <div><b>Acompanhamento</b><span>Mentoria mensal para ler os números e decidir o próximo ajuste.</span></div>
-        <div><b>Evolução contínua</b><span>Melhorias feitas no Aliança chegam a todos os clientes.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Dados protegidos</span>
+        <span class="eyebrow">Segurança</span>
         <h2>Feito para lidar com dado sensível de cliente.</h2>
       </div>
       <div class="trust">
-        <div><h3>Login por pessoa</h3><p>Cada usuário tem acesso próprio e cria a própria senha, com confirmação em 2 etapas pelo celular.</p></div>
-        <div><h3>Papéis de acesso</h3><p>Gestor, especialista ou somente leitura. Cada um vê e altera o que o papel permite.</p></div>
-        <div><h3>Auditoria</h3><p>O que foi criado, alterado ou apagado fica registrado com quem fez e quando.</p></div>
         <div><h3>Área isolada da sua empresa</h3><p>Os dados são seus. Cada empresa tem a sua área isolada no banco, e nenhuma outra empresa vê os seus clientes.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band alt origin">
-    <div class="wrap">
-      <span class="eyebrow">De onde veio</span>
-      <p class="big" style="margin-top:14px">Nasceu dentro de uma operação real de venda de proteção para médicos. <span>Cada tela foi ajustada por quem atende o cliente.</span></p>
-      <p class="who">Em uso desde setembro de 2026, melhorado toda semana a partir das sugestões do time.</p>
-    </div>
-  </section>
-
-  <section class="band" id="capacity-case">
-    <div class="wrap">
-      <div class="house">
-        <div class="house-copy">
-          <span class="eyebrow">Da mesma casa</span>
-          <h2>O Aliança é a Torre de Controle do Negócio aplicada à venda de proteção.</h2>
-          <p>A Capacity Case junta os dados espalhados da empresa numa torre única, treina alguém do time para operar e acompanha o dono por um ano. O Aliança leva esse método para dentro da corretora.</p>
-          <a class="btn btn-dark" href="https://capacitycase.com.br" target="_blank" rel="noopener">Conhecer a Capacity Case</a>
-        </div>
-        <ol class="loop" aria-label="Loop de gestão">
-          <li><b>Dado</b><span>Os números chegam num lugar só, toda semana.</span></li>
-          <li><b>Desvio</b><span>A tela mostra o que saiu do esperado.</span></li>
-          <li><b>Causa</b><span>O focal investiga o porquê antes da reunião.</span></li>
-          <li><b>Ação</b><span>Quem faz o quê, até quando.</span></li>
-          <li><b>Reporte</b><span>O que mudou volta no próximo ciclo.</span></li>
-        </ol>
+        <div><h3>Login por pessoa</h3><p>Cada usuário cria a própria senha, com confirmação em 2 etapas pelo celular.</p></div>
+        <div><h3>Papéis de acesso</h3><p>Administrador, corretor ou só leitura. Cada um vê e altera o que o papel permite.</p></div>
+        <div><h3>Nada se perde</h3><p>O sistema só dá como salvo o que o banco confirmou, guarda o que está sendo digitado e registra quem mudou o quê.</p></div>
       </div>
     </div>
   </section>
@@ -546,17 +344,17 @@ footer .row a:hover { color: var(--gold-bright); }
   <section class="band night" id="contato">
     <div class="wrap contact-grid">
       <div class="sec-head" style="margin:0">
-        <span class="eyebrow">Demonstração</span>
-        <h2>Veja o Aliança funcionando com a sua carteira em mente.</h2>
-        <p class="lead">30 minutos, sem compromisso, com o fluxo completo: do primeiro contato à apresentação ao cliente.</p>
+        <span class="eyebrow">Fale com a gente</span>
+        <h2>Conheça o CRM Aliança com a sua carteira em mente.</h2>
+        <p class="lead">Uma conversa de 30 minutos: você conta como vende hoje e vê o sistema funcionando.</p>
       </div>
       <div class="contact-card">
-        <h3>Agende pelo WhatsApp</h3>
+        <h3>Chame no WhatsApp</h3>
         <span class="muted">A mensagem abaixo já vai pronta.</span>
-        <div class="msg"><span>Mensagem que vai ser enviada</span><span>Olá, Luiz. Quero ver uma demonstração do CRM Aliança.</span></div>
-        <a class="btn btn-dark" href="https://wa.me/5511982917535?text=Ol%C3%A1%2C%20Luiz.%20Quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20CRM%20Alian%C3%A7a." target="_blank" rel="noopener">
+        <div class="msg"><span>Mensagem que vai ser enviada</span><span>Olá, Luiz. Quero conhecer o CRM Aliança.</span></div>
+        <a class="btn btn-dark" href="https://wa.me/5511982917535?text=Ol%C3%A1%2C%20Luiz.%20Quero%20conhecer%20o%20CRM%20Alian%C3%A7a." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.6 18.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg>
-          Pedir demonstração pelo WhatsApp
+          Quero conhecer pelo WhatsApp
         </a>
         <div class="zap">WhatsApp <b id="zap">(11) 98291-7535</b> <button type="button" class="copy" id="copiar-zap">Copiar número</button></div>
       </div>
