@@ -7,7 +7,7 @@
 <meta name="description" content="CRM Aliança, by Capacity Case: o CRM para quem vende proteção de forma consultiva.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
 /* Layout: identidade da Capacity Case (branco, grafite e dourado, faixas escuras); a linha do tempo do produto é o herói. Tema único, como o site da marca. */
 :root {
@@ -31,10 +31,11 @@
   --ok: #276b43; --ok-soft: #e3f1e8;
   --bad: #9e2f24; --bad-soft: #f8e3e0;
   --signal: #6cc592;
-  --font-display: Syne, "Arial Narrow", "Segoe UI", sans-serif;
-  --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", Consolas, ui-monospace, monospace;
-  --max: 1240px;
+  /* mesmas fontes do sistema (Torre de Controle - Aliança): Poppins nos títulos, Inter no texto, IBM Plex Mono nos rótulos */
+  --font-display: Poppins, "Segoe UI", sans-serif;
+  --font-body: Inter, "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, ui-monospace, monospace;
+  --max: none;   /* regra do Luiz: tela expansível, do celular ao monitor de 25" (sem largura máxima fixa) */
   color-scheme: light;
 }
 
@@ -44,7 +45,7 @@ a { color: var(--gold); }
 a:hover { color: var(--gold-deep); }
 h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; margin: 0; }
 p { margin: 0; }
-.wrap { max-width: var(--max); margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: max(clamp(24px, 4vw, 120px), env(safe-area-inset-left, 0px)); padding-right: max(clamp(24px, 4vw, 120px), env(safe-area-inset-right, 0px)); }
 @media (max-width: 560px) { .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); } }
 .band { padding-block: clamp(56px, 7vw, 88px); }
 .alt { background: var(--band); }
@@ -52,8 +53,10 @@ p { margin: 0; }
 .night h2, .night h3 { color: var(--on-night); }
 .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
 .night .eyebrow { color: var(--gold-bright); }
-.lead { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.5; color: var(--text); max-width: 62ch; }
+.lead { font-size: clamp(17px, 1.1vw, 24px); line-height: 1.5; color: var(--text); max-width: 80ch; }
 .night .lead { color: var(--on-night-soft); }
+.lead-torre { margin-top: 10px; font-size: clamp(15px, 1.2vw, 17px); color: var(--muted); }
+.lead-torre b { color: var(--gold-deep); }
 :focus-visible { outline: 2px solid #c99a32; outline-offset: 2px; }
 
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; font: 600 16px/1 var(--font-body); text-decoration: none; border: 1px solid transparent; cursor: pointer; }
@@ -73,7 +76,9 @@ p { margin: 0; }
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--white); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; min-height: 68px; flex-wrap: wrap; padding-block: 10px; }
 .lockup { display: flex; align-items: center; gap: 14px; min-width: 0; }
-.lockup .product { font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.lockup .product { display: flex; align-items: center; text-decoration: none; }
+.lockup .product img { height: 48px; width: auto; display: block; }
+@media (max-width: 480px) { .lockup .product img { height: 40px; } }
 .lockup .by { display: flex; align-items: center; gap: 8px; padding-left: 14px; border-left: 1px solid var(--line-strong); text-decoration: none; color: var(--muted); font-size: 13px; white-space: nowrap; }
 .lockup .by img { height: 26px; width: 26px; }
 .lockup .by .wm { height: 12px; width: auto; filter: brightness(0); opacity: .82; }
@@ -88,7 +93,7 @@ p { margin: 0; }
 .hero { padding-block: clamp(48px, 6vw, 72px) clamp(56px, 7vw, 80px); }
 .hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: center; }
 .hero-copy { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
-.hero h1 { font-size: clamp(36px, 4.6vw, 56px); line-height: 1.04; }
+.hero h1 { font-size: clamp(36px, 3.6vw, 84px); line-height: 1.04; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px 16px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chips span { padding: 6px 12px; border-radius: 999px; background: var(--gold-soft); font-size: 14px; font-weight: 600; color: var(--ink); }
@@ -125,7 +130,7 @@ p { margin: 0; }
 .dot { width: 18px; height: 10px; border-radius: 999px; display: inline-block; }
 
 /* Cabeçalho de seção */
-.sec-head { display: flex; flex-direction: column; gap: 10px; max-width: 760px; margin-bottom: 32px; }
+.sec-head { display: flex; flex-direction: column; gap: 10px; max-width: 1400px; margin-bottom: 32px; }
 .sec-head h2 { font-size: clamp(26px, 2.9vw, 38px); line-height: 1.1; }
 .sec-head p { font-size: 17px; }
 
@@ -158,7 +163,7 @@ p { margin: 0; }
 .io { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--gold-bright); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .io span { border: 1px solid rgba(215,170,66,.45); border-radius: 6px; padding: 3px 8px; }
 .io i { font-style: normal; color: var(--on-night-faint); }
-.ai-rule { margin-top: 28px; padding: 18px 20px; border-radius: 14px; border: 1px solid rgba(215,170,66,.45); background: rgba(215,170,66,.08); font-size: 15px; color: var(--on-night-soft); max-width: 820px; }
+.ai-rule { margin-top: 28px; padding: 18px 20px; border-radius: 14px; border: 1px solid rgba(215,170,66,.45); background: rgba(215,170,66,.08); font-size: 15px; color: var(--on-night-soft); max-width: 1400px; }
 .ai-rule b { color: var(--on-night); }
 
 /* Gestão */
@@ -288,10 +293,7 @@ footer .row a:hover { color: var(--gold-bright); }
 <header class="top">
   <div class="wrap">
     <div class="lockup">
-      <a class="product" href="#inicio">CRM Aliança</a>
-      <a class="by" href="https://capacitycase.com.br" target="_blank" rel="noopener" aria-label="by Capacity Case, abrir o site da Capacity Case">
-        <span>by</span><img src="assets/icone-dourado.png" alt=""><img class="wm" src="assets/wordmark-branco.png" alt="Capacity Case">
-      </a>
+      <a class="product" href="#inicio" aria-label="CRM Aliança, Torre de Controle by Capacity Case"><img src="assets/torre-logo-marinho.png" alt="Torre de Controle · Aliança · by Capacity Case" width="169" height="40"></a>
     </div>
     <nav aria-label="Seções">
       <a href="#jornada">Jornada</a>
@@ -310,7 +312,8 @@ footer .row a:hover { color: var(--gold-bright); }
       <div class="hero-copy">
         <span class="eyebrow">CRM Aliança · by Capacity Case</span>
         <h1>Cada cliente, do primeiro contato à renovação, numa linha só.</h1>
-        <p class="lead">O CRM para quem vende proteção de forma consultiva. Prospecção, diagnóstico, cotação, apresentação e pós-venda na mesma tela, para corretoras e assessorias que atendem médicos e profissionais liberais.</p>
+        <p class="lead">O CRM para quem vende proteção de forma consultiva. Prospecção, diagnóstico, cotação, apresentação e pós-venda na mesma tela, para corretores e corretoras que cuidam da proteção de profissionais, empresários e famílias.</p>
+        <p class="lead lead-torre">No dia a dia, o CRM Aliança vira a <b>Torre de Controle</b> da sua corretora: com o seu nome, o seu logo e as suas cores.</p>
         <div class="hero-cta">
           <a class="btn btn-dark" href="#contato">Pedir uma demonstração</a>
           <a class="btn btn-line" href="#jornada">Ver como funciona</a>
@@ -331,19 +334,19 @@ footer .row a:hover { color: var(--gold-bright); }
             <div class="tl-head">Cliente</div>
             <div class="tl-head">Mai</div><div class="tl-head">Jun</div><div class="tl-head">Jul</div><div class="tl-head">Ago</div><div class="tl-head">Set</div><div class="tl-head">Out</div>
 
-            <div class="tl-who"><b>Dra. Helena Duarte</b><small>Anestesiologia · Campinas</small></div>
+            <div class="tl-who"><b>Helena Duarte</b><small>Médica · Campinas</small></div>
             <div class="tl-row"><div class="tl-track"><i></i><i></i><i></i><i></i><i></i><i></i></div>
               <div class="tl-lane"><span class="seg seg-done" style="grid-column:1/4">Contato → Reunião</span><span class="seg seg-now" style="grid-column:4/7">Diagnóstico · Tem × Precisa</span></div></div>
 
-            <div class="tl-who"><b>Dr. Rafael Moreira</b><small>Cirurgia geral · SP</small></div>
+            <div class="tl-who"><b>Rafael Moreira</b><small>Empresário · São Paulo</small></div>
             <div class="tl-row"><div class="tl-track"><i></i><i></i><i></i><i></i><i></i><i></i></div>
               <div class="tl-lane"><span class="seg seg-done" style="grid-column:2/5">Diagnóstico → Cotação</span><span class="seg seg-late" style="grid-column:5/7">Proposta sem retorno · 12 dias</span></div></div>
 
-            <div class="tl-who"><b>Dra. Camila Rocha</b><small>Pediatria · Sorocaba</small></div>
+            <div class="tl-who"><b>Camila Rocha</b><small>Advogada · Sorocaba</small></div>
             <div class="tl-row"><div class="tl-track"><i></i><i></i><i></i><i></i><i></i><i></i></div>
               <div class="tl-lane"><span class="seg seg-done" style="grid-column:1/6">Fechada · renda e vida</span><span class="seg seg-next" style="grid-column:6/7">Pós-venda</span></div></div>
 
-            <div class="tl-who"><b>Dr. Paulo Nakamura</b><small>Ortopedia · Itu</small></div>
+            <div class="tl-who"><b>Paulo Nakamura</b><small>Engenheiro · Itu</small></div>
             <div class="tl-row"><div class="tl-track"><i></i><i></i><i></i><i></i><i></i><i></i></div>
               <div class="tl-lane"><span class="seg seg-now" style="grid-column:5/7">Indicação · reunião marcada</span></div></div>
           </div>
@@ -423,9 +426,9 @@ footer .row a:hover { color: var(--gold-bright); }
         <div class="m-card">
           <h3>Central de Apólices</h3>
           <div class="renew" aria-label="Exemplo de vencimentos">
-            <div><span>Renda · Dra. Helena D.</span><span class="chip chip-bad">7 dias</span></div>
-            <div><span>Vida · Dr. Rafael M.</span><span class="chip chip-gold">15 dias</span></div>
-            <div><span>RC profissional · Dra. Camila R.</span><span class="chip chip-ok">30 dias</span></div>
+            <div><span>Renda · Helena D.</span><span class="chip chip-bad">7 dias</span></div>
+            <div><span>Vida · Rafael M.</span><span class="chip chip-gold">15 dias</span></div>
+            <div><span>RC profissional · Camila R.</span><span class="chip chip-ok">30 dias</span></div>
           </div>
           <p>Todas as apólices emitidas num lugar, ordenadas por vencimento.</p>
         </div>
@@ -563,9 +566,9 @@ footer .row a:hover { color: var(--gold-bright); }
 
 <footer>
   <div class="wrap">
-    <p class="claim">O CRM Aliança é um produto da Capacity Case. <span>Os dados e o sistema ficam na sua empresa.</span></p>
+    <p class="claim">O CRM Aliança é um produto da Capacity Case. <span>Os dados dos seus clientes são da sua empresa, numa área isolada só dela.</span></p>
     <div class="row">
-      <a href="https://capacitycase.com.br" target="_blank" rel="noopener" aria-label="Capacity Case, abrir o site"><img src="assets/logo-branco.png" alt="Capacity Case"></a>
+      <a href="https://capacitycase.com.br" target="_blank" rel="noopener" aria-label="Capacity Case, abrir o site"><img src="assets/torre-logo-branco.png" alt="Torre de Controle · Aliança · by Capacity Case"></a>
       <div class="links">
         <a href="https://capacitycase.com.br" target="_blank" rel="noopener">Conheça a Capacity Case · Torre de Controle do Negócio</a>
         <span>Nomes e números das telas de exemplo são ilustrativos.</span>
