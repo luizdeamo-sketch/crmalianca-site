@@ -31,7 +31,7 @@
   --ok: #276b43; --ok-soft: #e3f1e8;
   --bad: #9e2f24; --bad-soft: #f8e3e0;
   --signal: #6cc592;
-  /* mesmas fontes do sistema (Torre de Controle - Aliança): Poppins nos títulos, Inter no texto, IBM Plex Mono nos rótulos */
+  /* mesmas fontes do sistema (CRM Aliança - by Capacity Case): Poppins nos títulos, Inter no texto, IBM Plex Mono nos rótulos */
   --font-display: Poppins, "Segoe UI", sans-serif;
   --font-body: Inter, "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", Consolas, ui-monospace, monospace;
@@ -148,7 +148,7 @@ p { margin: 0; }
 .ia-linha b { color: var(--gold-bright); }
 
 /* Planos em módulos (mesmos nomes e itens da tela Planos do sistema) */
-.planos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.planos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px; }
 .plano { border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: flex; flex-direction: column; gap: 14px; background: var(--white); min-width: 0; }
 .plano.meio { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
 .plano .mod { font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
@@ -214,7 +214,7 @@ footer .row a:hover { color: var(--gold-bright); }
 <header class="top">
   <div class="wrap">
     <div class="lockup">
-      <a class="product" href="#inicio" aria-label="CRM Aliança, Torre de Controle by Capacity Case"><img src="assets/torre-logo-marinho.png" alt="Torre de Controle · Aliança · by Capacity Case" width="169" height="40"></a>
+      <a class="product" href="#inicio" aria-label="CRM Aliança - by Capacity Case"><img src="assets/crm-logo-marinho.png" alt="CRM Aliança · by Capacity Case" width="147" height="40"></a>
     </div>
     <nav aria-label="Seções">
       <a href="#oque">O que faz</a>
@@ -233,7 +233,7 @@ footer .row a:hover { color: var(--gold-bright); }
         <span class="eyebrow">CRM Aliança · by Capacity Case</span>
         <h1>Cada cliente, do primeiro contato à renovação, numa linha só.</h1>
         <p class="lead">O CRM para quem vende proteção de forma consultiva. Prospecção, diagnóstico, cotação, apresentação e pós-venda na mesma tela, para corretores e corretoras que cuidam da proteção de profissionais, empresários e famílias.</p>
-        <p class="lead lead-torre">No dia a dia, o CRM Aliança vira a <b>Torre de Controle</b> da sua corretora: com o seu nome, o seu logo e as suas cores.</p>
+        <p class="lead lead-torre">O CRM Aliança fica com a cara da sua corretora: o seu nome, o seu logo e as suas cores.</p>
         <div class="hero-cta">
           <a class="btn btn-dark" href="#contato">Quero conhecer</a>
           <a class="btn btn-line" href="#planos">Ver os planos</a>
@@ -302,22 +302,27 @@ footer .row a:hover { color: var(--gold-bright); }
       <div class="sec-head">
         <span class="eyebrow">Planos</span>
         <h2>Vendido em módulos. Você começa pelo que precisa.</h2>
-        <p>Três planos, um em cima do outro. Dá para subir de plano a qualquer momento, pelo próprio sistema.</p>
+        <p>Dois módulos que funcionam sozinhos, Vendas e Carteira. Juntos, a venda fechada cai na carteira e a renovação volta para a venda. Quem tem equipe soma a Equipe. Dá para subir de plano a qualquer momento, pelo próprio sistema.</p>
       </div>
       <div class="planos">
         <div class="plano">
-          <span class="mod">Módulo 1</span><h3>Vendas</h3><p class="para">Para quem quer organizar a prospecção e vender mais.</p>
+          <span class="mod">Módulo</span><h3>Vendas</h3><p class="para">Para quem quer organizar a prospecção e vender mais.</p>
           <ul><li>Prospecção com funil por etapas</li><li>Consultoria com as fases da proteção patrimonial</li><li>Reuniões que se confirmam sozinhas</li><li>Base de conhecimento: produtos, argumentos e objeções</li><li>Agenda no Outlook, Teams e Google</li><li>IA de vendas</li></ul>
           <p class="pessoas">Até <b>3 pessoas</b> com acesso</p>
         </div>
+        <div class="plano">
+          <span class="mod">Módulo</span><h3>Carteira</h3><p class="para">Para quem já tem clientes e não quer perder nenhuma renovação.</p>
+          <ul><li>Central de Apólices, por vencimento</li><li>Avisos de renovação de 30, 15 e 7 dias</li><li>Pós-venda</li><li>IA de carteira: lê a apólice e a cotação e preenche os dados</li></ul>
+          <p class="pessoas">Até <b>3 pessoas</b> com acesso</p>
+        </div>
         <div class="plano meio">
-          <span class="mod">Módulos 1 + 2</span><h3>Vendas + Carteira</h3><p class="para">Para quem também cuida das apólices e das renovações.</p>
-          <ul><li class="mais">Tudo do plano Vendas</li><li>Central de Apólices</li><li>Avisos de renovação de 30, 15 e 7 dias</li><li>Pós-venda</li><li>IA de carteira: lê a apólice e a cotação e preenche os dados</li></ul>
+          <span class="mod">Os dois módulos</span><h3>Vendas + Carteira</h3><p class="para">A venda fechada já cai na carteira e a renovação volta para a venda.</p>
+          <ul><li class="mais">Tudo do Vendas</li><li class="mais">Tudo do Carteira</li></ul>
           <p class="pessoas">Até <b>5 pessoas</b> com acesso</p>
         </div>
         <div class="plano">
-          <span class="mod">Módulos 1 + 2 + 3</span><h3>Completo</h3><p class="para">Para quem gerencia uma equipe e quer números.</p>
-          <ul><li class="mais">Tudo do plano Vendas + Carteira</li><li>Indicadores da corretora e de cada corretor</li><li>Metas, orçamento e funil com taxas</li><li>Indicações</li><li>Ata da semana</li></ul>
+          <span class="mod">Os dois módulos + Equipe</span><h3>Vendas + Carteira + Equipe</h3><p class="para">Para quem gerencia uma equipe e quer números.</p>
+          <ul><li class="mais">Tudo do Vendas + Carteira</li><li>Indicadores da corretora e de cada corretor</li><li>Metas, orçamento e funil com taxas</li><li>Indicações</li><li>Ata da semana</li></ul>
           <p class="pessoas">Até <b>10 pessoas</b> com acesso</p>
         </div>
       </div>
@@ -366,9 +371,9 @@ footer .row a:hover { color: var(--gold-bright); }
   <div class="wrap">
     <p class="claim">O CRM Aliança é um produto da Capacity Case. <span>Os dados dos seus clientes são da sua empresa, numa área isolada só dela.</span></p>
     <div class="row">
-      <a href="https://capacitycase.com.br" target="_blank" rel="noopener" aria-label="Capacity Case, abrir o site"><img src="assets/torre-logo-branco.png" alt="Torre de Controle · Aliança · by Capacity Case"></a>
+      <a href="https://capacitycase.com.br" target="_blank" rel="noopener" aria-label="Capacity Case, abrir o site"><img src="assets/crm-logo-branco.png" alt="CRM Aliança · by Capacity Case"></a>
       <div class="links">
-        <a href="https://capacitycase.com.br" target="_blank" rel="noopener">Conheça a Capacity Case · Torre de Controle do Negócio</a>
+        <a href="https://capacitycase.com.br" target="_blank" rel="noopener">Conheça a Capacity Case</a>
         <span>Nomes e números das telas de exemplo são ilustrativos.</span>
         <span>© 2026 Capacity Case</span>
       </div>
