@@ -195,6 +195,11 @@ p { margin: 0; }
 .form-deg .presente { font-size: 13.5px; color: var(--gold-deep); font-weight: 600; margin-top: 2px; }
 .form-deg .erro { min-height: 20px; font-size: 14px; color: var(--bad); }
 .form-deg .btn { width: 100%; }
+.enviado { padding: 14px; border-radius: 12px; background: var(--ok-soft); color: var(--ink); font-size: 14px; display: grid; gap: 8px; }
+.enviado[hidden] { display: none; }
+.enviado pre { white-space: pre-wrap; margin: 0; padding: 10px 12px; background: var(--white); border-radius: 8px; font: 14px/1.5 var(--font-body); }
+.enviado-acoes { display: flex; gap: 8px; flex-wrap: wrap; }
+.enviado-acoes a.copy { text-decoration: none; display: inline-flex; align-items: center; }
 .contact-card .ou { font-size: 14px; color: var(--muted); text-align: center; }
 .contact-card .ou a { color: var(--ink); font-weight: 600; }
 
@@ -389,7 +394,7 @@ footer .row a:hover { color: var(--gold-bright); }
             <label>E-mail <small>(vira o seu login)</small><input id="d-email" type="email" autocomplete="email" required></label>
           </div>
           <div class="ind">
-            <label>Quem indicou? <small>(se alguém indicou)</small><input id="d-ind" placeholder="Ex.: Bravita"></label>
+            <label>Quem indicou? <small>(ou como conheceu: Instagram, Google, evento…)</small><input id="d-ind" placeholder="Ex.: Bravita" required></label>
             <div class="presente">🎁 Veio por indicação? Você ganha um presente de boas-vindas.</div>
           </div>
           <div class="erro" id="d-erro" role="alert"></div>
@@ -399,8 +404,11 @@ footer .row a:hover { color: var(--gold-bright); }
           </button>
           <span class="muted">O site não guarda os seus dados: eles vão só na mensagem do WhatsApp.</span>
         </form>
-        <p class="ou">Prefere só conversar? <a href="https://wa.me/5511982917535?text=Ol%C3%A1%2C%20Luiz.%20Quero%20conhecer%20o%20CRM%20Alian%C3%A7a." target="_blank" rel="noopener" id="zap-simples">Chame no WhatsApp</a></p>
-        <div class="zap">WhatsApp <b id="zap">(11) 98291-7535</b> <button type="button" class="copy" id="copiar-zap">Copiar número</button></div>
+        <div class="enviado" id="d-enviado" hidden>
+          <b>Abrimos o WhatsApp com a sua mensagem.</b> Se ele abriu sem o texto, copie aqui e cole na conversa:
+          <pre id="d-msg"></pre>
+          <div class="enviado-acoes"><button type="button" class="copy" id="d-copiar">Copiar mensagem</button><a class="copy" id="d-abrir" target="_blank" rel="noopener">Abrir o WhatsApp de novo</a></div>
+        </div>
       </div>
     </div>
   </section>
@@ -421,7 +429,7 @@ footer .row a:hover { color: var(--gold-bright); }
 </footer>
 
 <script>
-document.getElementById('copiar-zap').addEventListener('click', function () {
+if (document.getElementById('copiar-zap')) document.getElementById('copiar-zap').addEventListener('click', function () {
   var btn = this;
   function feito() { btn.textContent = 'Número copiado'; setTimeout(function () { btn.textContent = 'Copiar número'; }, 2000); }
   function selecionar() {
@@ -439,8 +447,6 @@ document.getElementById('copiar-zap').addEventListener('click', function () {
   var nomeInd = ind ? (INDICADORES[ind.toLowerCase()] || ind.replace(/[-_]+/g, ' ')) : '';
   var campoInd = document.getElementById('d-ind');
   if (nomeInd) campoInd.value = nomeInd.slice(0, 60);
-  // o "Chame no WhatsApp" simples também leva a indicação
-  if (nomeInd) { var z = document.getElementById('zap-simples'); z.href = 'https://wa.me/5511982917535?text=' + encodeURIComponent('Olá, Luiz. Quero conhecer o CRM Aliança. Indicação: ' + nomeInd + '.'); }
   document.getElementById('form-deg').addEventListener('submit', function (e) {
     e.preventDefault();
     var v = function (id) { return document.getElementById(id).value.trim(); };
@@ -449,9 +455,17 @@ document.getElementById('copiar-zap').addEventListener('click', function () {
     if (!nome || !corr) { erro.textContent = 'Preencha o seu nome e o nome da corretora.'; return; }
     if (zap.replace(/\D/g, '').length < 10) { erro.textContent = 'Confira o WhatsApp, com DDD.'; return; }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { erro.textContent = 'Confira o e-mail: ele vira o seu login.'; return; }
-    var linhas = ['Olá, Luiz! Quero testar o CRM Aliança por 15 dias.', '', 'Nome: ' + nome, 'Corretora: ' + corr, 'WhatsApp: ' + zap, 'E-mail (login): ' + email];
-    if (quem) linhas.push('Indicação: ' + quem);
-    window.open('https://wa.me/5511982917535?text=' + encodeURIComponent(linhas.join(String.fromCharCode(10))), '_blank', 'noopener');
+    if (!quem) { erro.textContent = 'Conte quem indicou (ou como conheceu o CRM Aliança).'; document.getElementById('d-ind').focus(); return; }
+    // todos os dados vão na mensagem: é com eles que a Capacity Case cria o acesso (12/11/2026, pedido do Luiz)
+    var linhas = ['Olá, Luiz! Quero testar o CRM Aliança por 15 dias.', '', 'Nome: ' + nome, 'Corretora: ' + corr, 'WhatsApp: ' + zap, 'E-mail (login): ' + email, 'Indicação: ' + quem];
+    var msg = linhas.join(String.fromCharCode(10)), url = 'https://wa.me/5511982917535?text=' + encodeURIComponent(msg);
+    document.getElementById('d-msg').textContent = msg; document.getElementById('d-abrir').href = url;
+    document.getElementById('d-enviado').hidden = false;
+    var w = window.open(url, '_blank', 'noopener'); if (!w && !/Mobi|Android/i.test(navigator.userAgent)) { /* bloqueado: o botão Abrir o WhatsApp de novo resolve */ }
+  });
+  document.getElementById('d-copiar').addEventListener('click', function () {
+    var b = this, t = document.getElementById('d-msg').textContent;
+    try { navigator.clipboard.writeText(t).then(function () { b.textContent = 'Mensagem copiada'; }, function () { b.textContent = 'Selecione e copie'; }); } catch (e) { b.textContent = 'Selecione e copie'; }
   });
 })();
 </script>
