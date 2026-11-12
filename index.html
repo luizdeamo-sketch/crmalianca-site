@@ -173,7 +173,7 @@ p { margin: 0; }
 /* Contato */
 .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: center; }
 .contact-card { padding: 28px; border-radius: 18px; background: var(--white); color: var(--text); display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.contact-card h3 { font-size: 22px; }
+.contact-card h3 { font-size: 22px; color: var(--ink); }
 .contact-card .muted { font-size: 14px; color: var(--muted); }
 .msg { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 10px; background: var(--band); }
 .msg span:first-child { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
@@ -182,6 +182,21 @@ p { margin: 0; }
 .zap b { font-family: var(--font-mono); font-weight: 500; color: var(--ink); user-select: all; }
 .copy { font: 600 13px/1 var(--font-body); color: var(--ink); background: var(--white); border: 1px solid var(--line-strong); border-radius: 999px; padding: 8px 12px; cursor: pointer; }
 .copy:hover { border-color: var(--ink); }
+
+/* Degustação: formulário que vira mensagem de WhatsApp (o site não guarda nada) */
+.form-deg { display: grid; gap: 12px; }
+.form-deg label { display: grid; gap: 5px; font-size: 14px; font-weight: 600; color: var(--ink); }
+.form-deg label small { font-weight: 400; color: var(--muted); }
+.form-deg input { font: 400 16px var(--font-body); min-height: 48px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--white); color: var(--ink); width: 100%; }
+.form-deg input:focus { border-color: var(--ink); outline: none; box-shadow: 0 0 0 3px rgba(156,117,24,.18); }
+.form-deg .dupla { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; }
+.form-deg .ind { padding: 12px 14px; border-radius: 12px; background: var(--gold-soft); border: 1px solid #ead9b0; }
+.form-deg .ind input { background: var(--white); }
+.form-deg .presente { font-size: 13.5px; color: var(--gold-deep); font-weight: 600; margin-top: 2px; }
+.form-deg .erro { min-height: 20px; font-size: 14px; color: var(--bad); }
+.form-deg .btn { width: 100%; }
+.contact-card .ou { font-size: 14px; color: var(--muted); text-align: center; }
+.contact-card .ou a { color: var(--ink); font-weight: 600; }
 
 /* Rodapé */
 footer { background: var(--night); border-top: 1px solid rgba(255,255,255,.08); }
@@ -230,7 +245,7 @@ footer .row a:hover { color: var(--gold-bright); }
       <a href="#planos">Planos</a>
       <a href="#seguranca">Segurança</a>
       <a href="https://capacitycase.com.br" target="_blank" rel="noopener">Capacity Case</a>
-      <a class="btn btn-dark" href="#contato">Quero conhecer</a>
+      <a class="btn btn-dark" href="#contato">Testar 15 dias grátis</a>
     </nav>
   </div>
 </header>
@@ -244,7 +259,7 @@ footer .row a:hover { color: var(--gold-bright); }
         <p class="lead">O CRM para quem vende proteção de forma consultiva. Prospecção, diagnóstico, cotação, apresentação e pós-venda na mesma tela, para corretores e corretoras que cuidam da proteção de profissionais, empresários e famílias.</p>
         <p class="lead lead-torre">O CRM Aliança fica com a cara da sua corretora: o seu nome, o seu logo e as suas cores.</p>
         <div class="hero-cta">
-          <a class="btn btn-dark" href="#contato">Quero conhecer</a>
+          <a class="btn btn-dark" href="#contato">Testar 15 dias grátis</a>
           <a class="btn btn-line" href="#planos">Ver os planos</a>
         </div>
         <div class="chips"><span>Vender mais</span><span>Perder menos renovação</span><span>Gerir pelo funil</span></div>
@@ -358,18 +373,33 @@ footer .row a:hover { color: var(--gold-bright); }
   <section class="band night" id="contato">
     <div class="wrap contact-grid">
       <div class="sec-head" style="margin:0">
-        <span class="eyebrow">Fale com a gente</span>
-        <h2>Conheça o CRM Aliança com a sua carteira em mente.</h2>
-        <p class="lead">Uma conversa de 30 minutos: você conta como vende hoje e vê o sistema funcionando.</p>
+        <span class="eyebrow">Degustação grátis</span>
+        <h2>Teste o CRM Aliança por 15 dias, com a sua carteira.</h2>
+        <p class="lead">Preencha ao lado. A mensagem vai pronta para o WhatsApp da Capacity Case e você recebe o link de acesso do seu sistema, com o nome da sua corretora. Sem cartão e sem fidelidade.</p>
       </div>
       <div class="contact-card">
-        <h3>Chame no WhatsApp</h3>
-        <span class="muted">A mensagem abaixo já vai pronta.</span>
-        <div class="msg"><span>Mensagem que vai ser enviada</span><span>Olá, Luiz. Quero conhecer o CRM Aliança.</span></div>
-        <a class="btn btn-dark" href="https://wa.me/5511982917535?text=Ol%C3%A1%2C%20Luiz.%20Quero%20conhecer%20o%20CRM%20Alian%C3%A7a." target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.6 18.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg>
-          Quero conhecer pelo WhatsApp
-        </a>
+        <h3>Quero testar 15 dias grátis</h3>
+        <form class="form-deg" id="form-deg" novalidate>
+          <div class="dupla">
+            <label>Seu nome<input id="d-nome" autocomplete="name" required></label>
+            <label>Nome da corretora<input id="d-corr" autocomplete="organization" required></label>
+          </div>
+          <div class="dupla">
+            <label>WhatsApp<input id="d-zap" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" required></label>
+            <label>E-mail <small>(vira o seu login)</small><input id="d-email" type="email" autocomplete="email" required></label>
+          </div>
+          <div class="ind">
+            <label>Quem indicou? <small>(se alguém indicou)</small><input id="d-ind" placeholder="Ex.: Bravita"></label>
+            <div class="presente">🎁 Veio por indicação? Você ganha um presente de boas-vindas.</div>
+          </div>
+          <div class="erro" id="d-erro" role="alert"></div>
+          <button class="btn btn-dark" type="submit">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.6 18.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+            Pedir minha degustação pelo WhatsApp
+          </button>
+          <span class="muted">O site não guarda os seus dados: eles vão só na mensagem do WhatsApp.</span>
+        </form>
+        <p class="ou">Prefere só conversar? <a href="https://wa.me/5511982917535?text=Ol%C3%A1%2C%20Luiz.%20Quero%20conhecer%20o%20CRM%20Alian%C3%A7a." target="_blank" rel="noopener" id="zap-simples">Chame no WhatsApp</a></p>
         <div class="zap">WhatsApp <b id="zap">(11) 98291-7535</b> <button type="button" class="copy" id="copiar-zap">Copiar número</button></div>
       </div>
     </div>
@@ -401,6 +431,29 @@ document.getElementById('copiar-zap').addEventListener('click', function () {
   }
   try { navigator.clipboard.writeText('11982917535').then(feito, selecionar); } catch (e) { selecionar(); }
 });
+
+// Degustação (12/11/2026): o link de indicação (?ind=bravita) já preenche quem indicou; o formulário vira mensagem de WhatsApp
+(function () {
+  var INDICADORES = { bravita: 'Bravita', callmed: 'CallMed Proteção Patrimonial' };
+  var ind = (new URLSearchParams(location.search).get('ind') || '').trim();
+  var nomeInd = ind ? (INDICADORES[ind.toLowerCase()] || ind.replace(/[-_]+/g, ' ')) : '';
+  var campoInd = document.getElementById('d-ind');
+  if (nomeInd) campoInd.value = nomeInd.slice(0, 60);
+  // o "Chame no WhatsApp" simples também leva a indicação
+  if (nomeInd) { var z = document.getElementById('zap-simples'); z.href = 'https://wa.me/5511982917535?text=' + encodeURIComponent('Olá, Luiz. Quero conhecer o CRM Aliança. Indicação: ' + nomeInd + '.'); }
+  document.getElementById('form-deg').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = function (id) { return document.getElementById(id).value.trim(); };
+    var nome = v('d-nome'), corr = v('d-corr'), zap = v('d-zap'), email = v('d-email'), quem = v('d-ind');
+    var erro = document.getElementById('d-erro'); erro.textContent = '';
+    if (!nome || !corr) { erro.textContent = 'Preencha o seu nome e o nome da corretora.'; return; }
+    if (zap.replace(/\D/g, '').length < 10) { erro.textContent = 'Confira o WhatsApp, com DDD.'; return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { erro.textContent = 'Confira o e-mail: ele vira o seu login.'; return; }
+    var linhas = ['Olá, Luiz! Quero testar o CRM Aliança por 15 dias.', '', 'Nome: ' + nome, 'Corretora: ' + corr, 'WhatsApp: ' + zap, 'E-mail (login): ' + email];
+    if (quem) linhas.push('Indicação: ' + quem);
+    window.open('https://wa.me/5511982917535?text=' + encodeURIComponent(linhas.join(String.fromCharCode(10))), '_blank', 'noopener');
+  });
+})();
 </script>
 
 </body>
